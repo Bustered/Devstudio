@@ -4,16 +4,16 @@ metadata:
   name: cluster-deployment
   labels:
     app: cluster
-  spec:
-    replicas: 3
-    selector:
-      matchLabels:
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cluster
+  template:
+    metadata:
+      labels:
         app: cluster
-    template:
-      metadata:
-        labels:
-          app: cluster
-      spec:
-        containers:
-        - name: cluster-deployment
-          image: bsandu1/cicd
+    spec:
+      containers:
+      - name: cluster-deployment
+        image: bsandu1/cicd
