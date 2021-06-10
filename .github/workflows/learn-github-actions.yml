@@ -6,5 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - run: docker build . -t bsandu1/cicd
-      - run: docker push bsandu1/cicd:latest
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERPASS }} | docker login -u bsandu1 --password-stdin
+      - name: Building docker image
+        run: docker build . -t bsandu1/cicd
+      - name: Pushing docker image
+        run: docker push bsandu1/cicd:latest
