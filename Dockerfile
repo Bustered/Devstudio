@@ -1,3 +1,3 @@
-FROM ubuntu
+FROM nginx
 COPY ./ /files
-CMD /bin/bash
+CMD nginx
