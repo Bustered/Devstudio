@@ -1,7 +1,7 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  check-bats-version:
+  Build-Docker-Image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,3 +12,8 @@ jobs:
         run: docker build . -t bsandu1/cicd
       - name: Pushing docker image
         run: docker push bsandu1/cicd:latest
+  Email: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: emailed successfully
+        run: echo pretending to email
