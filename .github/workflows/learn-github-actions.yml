@@ -13,6 +13,7 @@ jobs:
       - name: Pushing docker image
         run: docker push bsandu1/cicd:latest
   Email: 
+    needs: Build-Docker-Image
     runs-on: ubuntu-latest
     steps:
       - name: emailed successfully
