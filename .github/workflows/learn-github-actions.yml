@@ -23,5 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: mkdir ~/.kube
+      - run: echo ${{ secrets.KUBECONFIG }} >> ~/.kube/config
       - name: deployed to cluster
         run: kubectl apply -f ./customdeployment.yaml
